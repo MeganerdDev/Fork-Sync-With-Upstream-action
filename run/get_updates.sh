@@ -5,7 +5,10 @@
 # check latest commit hashes for a match, exit if nothing to sync
 check_for_updates() {
     write_out -1 'Checking for new commits on upstream branch.\n'
-
+    
+    # Test static reach
+    INPUT_SHALLOW_SINCE="2020-10-10"
+    
     # fetch commits from upstream branch within given time frame (default 1 month)
     git fetch --quiet --shallow-since="${INPUT_SHALLOW_SINCE}" upstream "${INPUT_UPSTREAM_SYNC_BRANCH}"
     COMMAND_STATUS=$?
